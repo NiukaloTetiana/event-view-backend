@@ -16,3 +16,9 @@ export const createEvent = async (data) => {
 
   return newEvent;
 };
+
+export const getEventById = async (eventId) => {
+  const event = await Event.findById(eventId);
+
+  return event;
+};

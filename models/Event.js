@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import { handleMongooseError } from "../helpers";
+import { handleMongooseError } from "../helpers/index.js";
 
 const eventSchema = new Schema(
   {
