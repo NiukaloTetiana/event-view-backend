@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import "dotenv/config";
 
 import { eventsRouter } from "./routes/eventsRouter.js";
+import { participantsRouter } from "./routes/participantsRouter.js";
 
 const { DB_HOST, PORT = 3000 } = process.env;
 
@@ -20,6 +21,7 @@ app.use(
 app.use(express.json());
 
 app.use("/api/events", eventsRouter);
+app.use("/api/participants", participantsRouter);
 
 app.use((_, res) => {
   res.status(404).json({ message: "Route not found" });

@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-export const createParticipantsSchema = Joi.object({
+export const createParticipantSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().required(),
   dateOfBirth: Joi.date().required(),
