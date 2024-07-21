@@ -3,6 +3,7 @@ import {
   getParticipantById,
   listParticipants,
   createParticipant,
+  findParticipantEmail,
 } from "../services/participantsServices.js";
 
 const getAllParticipants = async (req, res) => {
@@ -23,10 +24,10 @@ const getOneParticipant = async (req, res) => {
 };
 
 const addParticipant = async (req, res) => {
-  const { email } = req.body;
-  const participant = await findParticipantEmail({ email });
+  const { email, eventId } = req.body;
+  const participants = await findParticipantEmail(email);
 
-  if (participant) {
+  if (participants.find((elem) => elem.eventId.toString() === eventId)) {
     throw HttpError(409, "Participant already registered for this event");
   }
 

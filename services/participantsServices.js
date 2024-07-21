@@ -19,7 +19,7 @@ export const getParticipantById = async (ParticipantId) => {
 };
 
 export const findParticipantEmail = async (email) => {
-  const participant = await Participant.findOne(email);
+  const participants = await Participant.find({ email });
 
-  return participant;
+  return participants;
 };
