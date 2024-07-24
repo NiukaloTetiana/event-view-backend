@@ -1,4 +1,5 @@
-import { ctrlWrapper, HttpError } from "../helpers/index.js";
+import { HttpError } from "../helpers/httpError.js";
+import { ctrlWrapper } from "../helpers/ctrlWrapper.js";
 import {
   getParticipantById,
   listParticipants,
