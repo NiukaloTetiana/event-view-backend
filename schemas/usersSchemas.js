@@ -16,3 +16,10 @@ export const loginUserSchema = Joi.object({
   password: Joi.string().required(),
   email: Joi.string().pattern(emailRegExp).required(),
 });
+
+export const refreshUserSchema = Joi.object({
+  refreshToken: Joi.string().required().messages({
+    "any.required": "refreshToken is required",
+    "string.base": "The refreshToken must be a text string.",
+  }),
+});

@@ -23,3 +23,9 @@ export const getEventById = async (eventId) => {
 
   return event;
 };
+
+export const getEventsByIds = async (eventIds) => {
+  const events = await Event.find({ _id: { $in: eventIds } });
+
+  return events;
+};

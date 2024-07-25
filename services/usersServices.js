@@ -1,7 +1,7 @@
 import { User } from "../models/User.js";
 
-export const findUserEmail = async (email) => {
-  const user = await User.findOne(email);
+export const findUser = async (filter) => {
+  const user = await User.findOne(filter);
 
   return user;
 };
@@ -11,6 +11,3 @@ export const createUser = async (body) => {
 
   return newUser;
 };
-
-export const updateUser = async (id, data) =>
-  User.findByIdAndUpdate(id, data, { new: true });

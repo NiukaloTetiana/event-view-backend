@@ -19,9 +19,16 @@ const userSchema = new Schema(
       match: emailRegExp,
       unique: true,
     },
-    token: {
+    accessToken: {
       type: String,
       default: null,
+    },
+    refreshToken: {
+      type: String,
+      default: null,
+    },
+    events: {
+      type: [{ type: Schema.Types.ObjectId, ref: "Event" }],
     },
   },
   { versionKey: false, timestamps: true }

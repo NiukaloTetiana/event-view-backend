@@ -6,16 +6,19 @@ const getAllEvents = async (req, res) => {
   const { page = 1, limit = 10, byDate, byTitle, byOrganizer } = req.query;
   const skip = (page - 1) * limit;
   const sort = {};
-  console.log("skip", skip);
+
   if (byDate !== undefined) {
     sort.event_date = byDate === "true" ? 1 : -1;
   }
+
   if (byTitle !== undefined) {
     sort.title = byTitle === "true" ? 1 : -1;
   }
+
   if (byOrganizer !== undefined) {
     sort.organizer = byOrganizer === "true" ? 1 : -1;
   }
+
   const result = await listEvents({}, { skip, limit }, sort);
 
   res.json(result);
